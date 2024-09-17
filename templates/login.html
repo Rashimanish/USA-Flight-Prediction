@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <div class="hero">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="flash {{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <form id="login" class="input-group" method="POST" action="{{ url_for('login') }}">
+                <input type="text" class="input-field" name="email" placeholder="Email" required>
+                <input type="password" class="input-field" name="password" placeholder="Password" required>
+                <div>
+                    <input type="checkbox" class="check-box"><span>Remember Password</span>
+                </div>
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+            <form id="register" class="input-group" method="POST" action="{{ url_for('register') }}">
+                <input type="text" class="input-field" name="first_name" placeholder="First Name" required>
+                <input type="text" class="input-field" name="email" placeholder="Email" required>
+                <input type="password" class="input-field" name="password" placeholder="Password" required>
+                <input type="password" class="input-field" name="confirm_password" placeholder="Confirm Password" required>
+                <div>
+                    <input type="checkbox" class="check-box" id="terms" required><span>I agree to the terms & conditions.</span>
+                    </div>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("btn");
+
+        function register() {
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+        }
+
+        function login() {
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0";
+        }
+    </script>
+</body>
+<footer>
+    <p>
+        Smart Skies<i class="fa fa-heart"></i>
+        <a target="_blank" href="#">Your Personal Flight Delay Prediction Companion</a>
+    </p>
+</footer>
+</html>
+
+
+
+
+
+
+
+

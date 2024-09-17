@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('predict') }}">Home</a></li>
+            <li><a href="{{ url_for('history') }}">Prediction History</a></li>
+            <li><a href="{{ url_for('travel') }}">Travel Tips</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Flight Delay Prediction Form</h1>
+    </header>
+    <form action="{{ url_for('predict') }}" method="POST">
+        <div class="form-container">
+            <div class="form-item">
+                <label for="Date">Date:</label>
+                <input type="date" id="Date" name="Date" class="form-control" required>
+            </div>
+
+            <div class="form-item">
+                <label for="Origin">Origin Airport:</label>
+                <select name="Origin" id="Origin" class="form-control" required>
+                    <option value="ATL">Hartsfield-Jackson Atlanta International Airport (ATL)</option>
+                    <option value="CLT">Charlotte Douglas International Airport (CLT)</option>
+                    <option value="DEN">Denver International Airport (DEN)</option>
+                    <option value="DFW">Dallas/Fort Worth International Airport (DFW)</option>
+                    <option value="EWR">Newark Liberty International Airport (EWR)</option>
+                    <option value="IAH">George Bush Intercontinental Airport (IAH)</option>
+                    <option value="JFK">John F. Kennedy International Airport (JFK)</option>
+                    <option value="LAS">McCarran International Airport (LAS)</option>
+                    <option value="LAX">Los Angeles International Airport (LAX)</option>
+                    <option value="MCO">Orlando International Airport (MCO)</option>
+                    <option value="MIA">Miami International Airport (MIA)</option>
+                    <option value="ORD">O'Hare International Airport (ORD)</option>
+                    <option value="PHX">Phoenix Sky Harbor International Airport (PHX)</option>
+                    <option value="SEA">Seattle-Tacoma International Airport (SEA)</option>
+                    <option value="SFO">San Francisco International Airport (SFO)</option>
+                </select>
+            </div>
+
+            <div class="form-item">
+                <label for="Destination">Destination Airport:</label>
+                <select name="Destination" id="Destination" class="form-control" required>
+                    <option value="ATL">Hartsfield-Jackson Atlanta International Airport (ATL)</option>
+                    <option value="CLT">Charlotte Douglas International Airport (CLT)</option>
+                    <option value="DEN">Denver International Airport (DEN)</option>
+                    <option value="DFW">Dallas/Fort Worth International Airport (DFW)</option>
+                    <option value="EWR">Newark Liberty International Airport (EWR)</option>
+                    <option value="IAH">George Bush Intercontinental Airport (IAH)</option>
+                    <option value="JFK">John F. Kennedy International Airport (JFK)</option>
+                    <option value="LAS">McCarran International Airport (LAS)</option>
+                    <option value="LAX">Los Angeles International Airport (LAX)</option>
+                    <option value="MCO">Orlando International Airport (MCO)</option>
+                    <option value="MIA">Miami International Airport (MIA)</option>
+                    <option value="ORD">O'Hare International Airport (ORD)</option>
+                    <option value="PHX">Phoenix Sky Harbor International Airport (PHX)</option>
+                    <option value="SEA">Seattle-Tacoma International Airport (SEA)</option>
+                    <option value="SFO">San Francisco International Airport (SFO)</option>
+                </select>
+            </div>
+
+            <div class="form-item">
+                <label for="Carrier">Carrier:</label>
+                <select name="Carrier" id="Carrier" class="form-control" required>
+                    <option value="DL">Delta Air Lines</option>
+                    <option value="AA">American Airlines</option>
+                    <option value="UA">United Airlines</option>
+                    <option value="SW">Southwest Airlines</option>
+                    <option value="AS">Alaska Airlines</option>
+                </select>
+            </div>
+
+            <div class="form-item">
+                <label for="CRS_DEP_TIME">Scheduled Departure Time:</label>
+                <input type="time" name="CRS_DEP_TIME" id="CRS_DEP_TIME" class="form-control" required>
+            </div>
+            
+            <div class="form-item">
+                <label for="CRS_ARR_TIME">Scheduled Arrival Time:</label>
+                <input type="time" name="CRS_ARR_TIME" id="CRS_ARR_TIME" class="form-control" required>
+            </div>
+
+            <div class="form-item full-width">
+                <button type="submit" class="submit-button">Predict</button>
+            </div>
+        </div>
+    </form>
+</body>
+<footer>
+    <p>© 2024 Rashmi Maneesha. All rights reserved.</p>
+</footer>
+</html>
+
+
+
+
+
+
+

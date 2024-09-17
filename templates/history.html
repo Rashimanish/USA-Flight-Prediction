@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/history.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.default.min.css">
+</head>
+
+<body>
+    <header>
+        <h1></h1>
+    </header>
+
+    <div id="wrapper">
+        <h1>View your previous predictions..</h1>
+        <table id="keywords" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th><span>Date</span></th>
+                    <th><span>Origin</span></th>
+                    <th><span>Destination</span></th>
+                    <th><span>CRS Departure Time</span></th>
+                    <th><span>CRS Arrival Time</span></th>
+                    <th><span>Prediction</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prediction in predictions %}
+                <tr>
+                    <td class="lalign">{{ prediction.date }}</td>
+                    <td>{{ prediction.origin }}</td>
+                    <td>{{ prediction.destination }}</td>
+                    <td>{{ prediction.crs_dep_time }}</td>
+                    <td>{{ prediction.crs_arr_time }}</td>
+                    <td>{{ prediction.prediction }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6">No predictions found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <a href="{{ url_for('predict') }}" class="btn btn-primary">Make another prediction</a>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
