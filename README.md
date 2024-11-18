@@ -57,7 +57,7 @@ Now we can deploy the web application via
 python app.py
 ~~~
 
-and navigate to `http://127.0.0.1:5000/` to see it live. On this page, a user can then submit the form and receive predictions from the trained model and determine if the Customer says 'Yes' or 'No'
+and navigate to `http://127.0.0.1:5000/` to see it live. On this page, a user can then submit the form and receive predictions from the trained model and determine if the Flight will be delayed or not and the expected duration of the delay. 
 
 
 The application may then be terminated with the following commands.
